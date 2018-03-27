@@ -1,0 +1,49 @@
+===== Static debug    =====
+sfml-graphics-s-d.lib
+sfml-window-s-d.lib
+sfml-audio-s-d.lib
+sfml-network-s-d.lib
+sfml-system-s-d.lib
+
+===== Static release  =====
+sfml-graphics-s.lib
+sfml-window-s.lib
+sfml-audio-s.lib
+sfml-network-s.lib
+sfml-system-s.lib
+
+===== Dynamic debug   =====
+sfml-graphics-d.lib
+sfml-window-d.lib
+sfml-audio-d.lib
+sfml-network-d.lib
+sfml-system-d.lib
+
+===== Dynamic release =====
+sfml-graphics.lib
+sfml-window.lib
+sfml-audio.lib
+sfml-network.lib
+sfml-system.lib
+
+===== The rest        =====
+jpeg.lib
+freetype.lib
+glu32.lib
+opengl32.lib
+openal32.lib
+ogg.lib
+flac.lib
+vorbis.lib
+vorbisfile.lib
+vorbisenc.lib
+gdi32.lib
+winmm.lib
+ws2_32.lib
+
+Static debug: 		sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib
+Static release: 	sfml-graphics-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-network-s.lib;sfml-system-s.lib
+Dynamic debug: 		sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib
+Dynamic release: 	sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib
+Dependencies:		jpeg.lib;freetype.lib;glu32.lib;opengl32.lib;openal32.lib;ogg.lib;flac.lib;vorbis.lib;vorbisfile.lib;vorbisenc.lib;gdi32.lib;winmm.lib;ws2_32.lib
+
