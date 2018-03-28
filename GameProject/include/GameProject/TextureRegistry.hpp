@@ -29,6 +29,11 @@ namespace gameproject
 		using RegistryType	= std::map<std::string, TextureAsset>;
 		
 		// Methods:
+		
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TextureRegistryM"/> class.
+		/// </summary>
+		TextureRegistryM();
 
 		/// <summary>
 		/// Provides texture with specified name.

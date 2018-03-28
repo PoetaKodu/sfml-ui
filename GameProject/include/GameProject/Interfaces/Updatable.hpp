@@ -5,8 +5,14 @@ namespace gameproject
 	/// <summary>
 	/// Basic interface for everything that should be update every frame.
 	/// </summary>
-	struct IUpdatable {
-		using TimePoint = std::chrono::high_resolution_clock::time_point;
+	struct IUpdatable
+	{
+		// Aliases:
+
+		using ClockType = std::chrono::high_resolution_clock;
+		using TimePoint = ClockType::time_point;
+
+		// Methods:
 
 		/// <summary>
 		/// Updates this instance.
