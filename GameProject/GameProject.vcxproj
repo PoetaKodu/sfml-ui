@@ -178,6 +178,8 @@
     <ClInclude Include="GameProjectPCH.hpp" />
     <ClInclude Include="include\GameProject\Game.hpp" />
     <ClInclude Include="include\GameProject\GameInstance.hpp" />
+    <ClInclude Include="include\GameProject\Interfaces\Updatable.hpp" />
+    <ClInclude Include="include\GameProject\TextureRegistry.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameProject\Main.cpp" />
@@ -188,6 +190,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\GameProject\Game.cpp" />
+    <ClCompile Include="src\GameProject\TextureRegistry.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
