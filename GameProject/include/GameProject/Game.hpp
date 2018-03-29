@@ -11,8 +11,8 @@ namespace gameproject
 class Game
 {
 public:	
-
 	// Enums:
+
 	/// <summary>
 	/// Lists every possible state of the game.
 	/// </summary>
