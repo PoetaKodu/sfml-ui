@@ -3,11 +3,12 @@
 #include GAMEPROJECT_PCH
 
 #include <GameProject/Interfaces/Updatable.hpp>
+#include <GameProject/Core/Memory.hpp>
 
 namespace gameproject
 {	
 
-using TextureAsset = std::shared_ptr<sf::Texture>;
+using TextureAsset = SharedPtr<sf::Texture>;
 
 /// <summary>
 /// Holds and manages every texture.
