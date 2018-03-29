@@ -19,6 +19,15 @@
     <Filter Include="Header Files\Interfaces">
       <UniqueIdentifier>{db4403fc-b112-429b-a9a2-04e1a3796cbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Actors">
+      <UniqueIdentifier>{1d8ea422-2a9e-4f33-9bb9-140b0d72b4d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{958170fc-c27a-4d11-9aa3-819e8c116cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Actors\Components">
+      <UniqueIdentifier>{5c6e08a9-e62e-4cfb-a00c-0e6a4af74b1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameProjectPCH.cpp">
@@ -31,6 +40,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\GameProject\TextureRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameProject\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -49,6 +61,15 @@
     </ClInclude>
     <ClInclude Include="include\GameProject\Interfaces\Updatable.hpp">
       <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameProject\Scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameProject\Actors\Actor.hpp">
+      <Filter>Header Files\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameProject\Core\Memory.hpp">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
