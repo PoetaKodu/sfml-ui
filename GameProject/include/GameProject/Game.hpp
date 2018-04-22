@@ -2,6 +2,8 @@
 
 #include GAMEPROJECT_PCH
 
+#include <GameProject/TextureRegistry.hpp>
+
 namespace gameproject
 {
 
@@ -56,6 +58,7 @@ public:
 
 	// Members:
 	sf::RenderWindow		Window;				/// The game window.
+	TextureRegistry			Textures;			/// Registry of all loaded textures.
 private:
 	
 	// Methods:

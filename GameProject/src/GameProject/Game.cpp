@@ -23,22 +23,44 @@ Game::~Game()
 void Game::run()
 {
 	this->initialize();
-
 	this->setStatus(Status::Running);
+
+	
+	// Time measurement:
+	using namespace std::chrono;
+	// Frame time must be put outside the loop.
+	auto frameStart = IUpdatable::ClockType::now();
 
 	while (this->getStatus() == Status::Running)
 	{
+		// Store how many seconds passed since last frame:
+		double deltaTime = .0;
+		// Calculate delta time and set "frameStart" to current time point.
+		{
+			using SecondsD = duration<double>;
+
+			const auto now	= IUpdatable::ClockType::now();
+			deltaTime		= duration_cast< SecondsD >( now - frameStart ).count();
+			frameStart		= now;
+		}
+		
+
 		// The event handling loop:
 		sf::Event windowEvent;
 		while (Window.pollEvent(windowEvent))
 			this->handleEvent(windowEvent);
 
-		// Logic loop:
-		// TODO: update logic here.
+		// Perform logic update:
+		{
+			Textures.update(deltaTime, frameStart);
+		}
+		
 
-		// Display loop:
+		// Perform rendering:
 		Window.clear(sf::Color::Black);
-		// TODO: draw scene here.
+		{
+			// TODO: draw scene here.
+		}
 		Window.display();
 	}
 }
