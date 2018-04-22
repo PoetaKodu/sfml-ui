@@ -6,13 +6,13 @@ namespace gameproject
 {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-TextureRegistryM::TextureRegistryM()
+TextureRegistry::TextureRegistry()
+	: m_lastCleanup{ ClockType::now() }
 {
-	m_lastCleanup = IUpdatable::ClockType::now();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-TextureAsset TextureRegistryM::provide(const std::string & assetName_, const std::string & fileName_)
+TextureAsset TextureRegistry::provide(const std::string & assetName_, const std::string & fileName_)
 {
 	// Check if texture is already loaded:
 	if (auto result = this->get(assetName_))
@@ -24,7 +24,7 @@ TextureAsset TextureRegistryM::provide(const std::string & assetName_, const std
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-TextureAsset TextureRegistryM::load(const std::string & assetName_, const std::string & fileName_)
+TextureAsset TextureRegistry::load(const std::string & assetName_, const std::string & fileName_)
 {
 	// Otherwise load it:
 	// Assign and return.
@@ -32,9 +32,9 @@ TextureAsset TextureRegistryM::load(const std::string & assetName_, const std::s
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-TextureAsset TextureRegistryM::get(const std::string & assetName_)
+TextureAsset TextureRegistry::get(const std::string & assetName_)
 {
-	auto it = m_textures.find(assetName_);
+	const auto it = m_textures.find(assetName_);
 	// Check if texture was found
 	if (it != m_textures.end())
 		return it->second;
@@ -42,7 +42,7 @@ TextureAsset TextureRegistryM::get(const std::string & assetName_)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void TextureRegistryM::update(double deltaTime_, const IUpdatable::TimePoint & frameTime_)
+void TextureRegistry::update(const double deltaTime_, const TimePoint & frameTime_)
 {
 	if (frameTime_ - m_lastCleanup > cxCleanupInterval)
 	{
@@ -62,9 +62,9 @@ void TextureRegistryM::update(double deltaTime_, const IUpdatable::TimePoint & f
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-TextureAsset TextureRegistryM::loadTextureFromFile(const std::string & fileName_) const
+TextureAsset TextureRegistry::loadTextureFromFile(const std::string & fileName_) const
 {
-	TextureAsset result = std::make_shared<sf::Texture>();
+	auto result = std::make_shared<sf::Texture>();
 	// Try loading from the texture:
 	if (result->loadFromFile(fileName_)){
 		return result;

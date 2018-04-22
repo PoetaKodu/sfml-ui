@@ -104,6 +104,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +123,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +144,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -164,6 +167,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -177,9 +181,18 @@
   <ItemGroup>
     <ClInclude Include="GameProjectPCH.hpp" />
     <ClInclude Include="include\GameProject\Actors\Actor.hpp" />
-    <ClInclude Include="include\GameProject\Core\Memory.hpp" />
+    <ClInclude Include="include\GameProject\Core\MathInc.hpp" />
+    <ClInclude Include="include\GameProject\Core\Math\Helper.hpp" />
+    <ClInclude Include="include\GameProject\Core\Math\Length.hpp" />
+    <ClInclude Include="include\GameProject\Core\Math\Random.hpp" />
+    <ClInclude Include="include\GameProject\Core\Math\Vector2.hpp" />
+    <ClInclude Include="include\GameProject\Core\Math\Vector3.hpp" />
+    <ClInclude Include="include\GameProject\Core\Math\VectorStringBuilder.hpp" />
+    <ClInclude Include="include\GameProject\Core\Pointers.hpp" />
+    <ClInclude Include="include\GameProject\Core\TypeTraits.hpp" />
     <ClInclude Include="include\GameProject\Game.hpp" />
     <ClInclude Include="include\GameProject\GameInstance.hpp" />
+    <ClInclude Include="include\GameProject\Core\MathSFMLInc.hpp" />
     <ClInclude Include="include\GameProject\Interfaces\Updatable.hpp" />
     <ClInclude Include="include\GameProject\Scene.hpp" />
     <ClInclude Include="include\GameProject\TextureRegistry.hpp" />
@@ -195,6 +208,10 @@
     <ClCompile Include="src\GameProject\Game.cpp" />
     <ClCompile Include="src\GameProject\Scene.cpp" />
     <ClCompile Include="src\GameProject\TextureRegistry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\GameProject\Core\Math\Helper.inl" />
+    <None Include="include\GameProject\Core\Math\Random.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

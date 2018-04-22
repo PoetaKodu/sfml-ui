@@ -92,7 +92,7 @@ public:
 	/// </summary>
 	/// <param name="deltaTime_">Time that passed since previous frame.</param>
 	/// <param name="frameTime_">The frame start time.</param>
-	virtual void update(double deltaTime_, const IUpdatable::TimePoint & frameTime_) override;
+	virtual void update(const double deltaTime_, const IUpdatable::TimePoint & frameTime_) override;
 
 protected:
 	// Methods:

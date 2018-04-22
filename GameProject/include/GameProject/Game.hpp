@@ -41,6 +41,12 @@ public:
 	void run();
 	
 	/// <summary>
+	/// Sets the status.
+	/// </summary>
+	/// <param name="status_">The status.</param>
+	void setStatus(Status const status_);
+
+	/// <summary>
 	/// Returns game status.
 	/// </summary>
 	/// <returns>Game status.</returns>

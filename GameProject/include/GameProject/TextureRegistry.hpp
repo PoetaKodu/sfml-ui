@@ -3,7 +3,7 @@
 #include GAMEPROJECT_PCH
 
 #include <GameProject/Interfaces/Updatable.hpp>
-#include <GameProject/Core/Memory.hpp>
+#include <GameProject/Core/Pointers.hpp>
 
 namespace gameproject
 {	
@@ -13,10 +13,7 @@ using TextureAsset = SharedPtr<sf::Texture>;
 /// <summary>
 /// Holds and manages every texture.
 /// </summary>
-/// <remarks>
-/// <para>M at the end stands for "Module"</para>
-/// </remarks>
-class TextureRegistryM final
+class TextureRegistry final
 	: public IUpdatable
 {
 	// Aliases:
@@ -33,9 +30,9 @@ public:
 	// Methods:
 		
 	/// <summary>
-	/// Initializes a new instance of the <see cref="TextureRegistryM"/> class.
+	/// Initializes a new instance of the <see cref="TextureRegistry"/> class.
 	/// </summary>
-	TextureRegistryM();
+	TextureRegistry();
 
 	/// <summary>
 	/// Provides texture with specified name.
@@ -65,7 +62,7 @@ public:
 	/// </summary>
 	/// <param name="deltaTime_">Time that passed since previous frame.</param>
 	/// <param name="frameTime_">The frame start time.</param>
-	virtual void update(double deltaTime_, const IUpdatable::TimePoint & frameTime_) override;
+	virtual void update(const double deltaTime_, const TimePoint & frameTime_) override;
 
 	/// <summary>
 	/// Returns cref to texture map.
@@ -87,7 +84,7 @@ private:
 	// Members:
 
 	RegistryType			m_textures;
-	IUpdatable::TimePoint	m_lastCleanup;
+	TimePoint				m_lastCleanup;
 };
 
 }

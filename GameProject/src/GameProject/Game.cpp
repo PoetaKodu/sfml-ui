@@ -1,6 +1,7 @@
 #include "GameProjectPCH.hpp"
 
 #include <GameProject/Game.hpp>
+#include <GameProject/Core/MathSFMLInc.hpp>
 
 namespace gameproject
 {
@@ -23,6 +24,8 @@ void Game::run()
 {
 	this->initialize();
 
+	this->setStatus(Status::Running);
+
 	while (this->getStatus() == Status::Running)
 	{
 		// The event handling loop:
@@ -38,6 +41,12 @@ void Game::run()
 		// TODO: draw scene here.
 		Window.display();
 	}
+}
+
+////////////////////////////////////////////////////////////////////////////
+void Game::setStatus(Status const status_)
+{
+	m_status = status_;
 }
 
 ////////////////////////////////////////////////////////////////////////////

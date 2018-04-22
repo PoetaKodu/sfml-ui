@@ -10,21 +10,25 @@ bool Scene::add(const ActorPtrType & actor_, const AddPolicy policy_)
 {
 	if (actor_)
 	{
-		if (policy_ == AddPolicy::Unchecked || ! this->contains(*actor_) )
+		if (policy_ == AddPolicy::Unchecked || !this->contains(*actor_) )
 		{
 			m_actors.push_back(actor_);
+			return true;
 		}
 	}
+	return false;
 }
 
 //////////////////////////////////////////////////////////////////////////////
 bool Scene::remove(const IActor & actor_)
 {
-	auto it = this->findActor(actor_);
+	const auto it = this->findActor(actor_);
 	if (it != m_actors.end())
 	{
 		m_actors.erase(it);
+		return true;
 	}
+	return false;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -34,7 +38,7 @@ bool Scene::contains(const IActor & actor_) const
 }
 
 //////////////////////////////////////////////////////////////////////////////
-void Scene::update(double deltaTime_, const IUpdatable::TimePoint & frameTime_)
+void Scene::update(const double deltaTime_, const IUpdatable::TimePoint & frameTime_)
 {
 	for (const auto & actor : m_actors)
 		actor->update(deltaTime_, frameTime_);
@@ -44,7 +48,7 @@ void Scene::update(double deltaTime_, const IUpdatable::TimePoint & frameTime_)
 void Scene::draw(sf::RenderTarget & target_, sf::RenderStates states_) const
 {
 	for (const auto & actor : m_actors)
-		actor->draw(target_, states_); // TODO: implement draw.
+		actor->draw(target_, states_);
 }
 
 //////////////////////////////////////////////////////////////////////////////
