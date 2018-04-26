@@ -1,8 +1,8 @@
 #include "GameProjectPCH.hpp"
 
-#include <GameProject/TextureRegistry.hpp>
+#include <SFML-UI/TextureRegistry.hpp>
 
-namespace gameproject
+namespace sfui
 {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////

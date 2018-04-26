@@ -1,11 +1,11 @@
 #pragma once
 
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
-#include <GameProject/Interfaces/Updatable.hpp>
-#include <GameProject/Core/Pointers.hpp>
+#include <SFML-UI/Interfaces/Updatable.hpp>
+#include <SFML-UI/Core/Pointers.hpp>
 
-namespace gameproject
+namespace sfui
 {	
 
 using TextureAsset = SharedPtr<sf::Texture>;

@@ -3,10 +3,10 @@
 #pragma once
 
 // Precompiled header:
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
 #include "Helper.hpp"
-#include <GameProject/Core/TypeTraits.hpp>
+#include <SFML-UI/Core/TypeTraits.hpp>
 
 namespace math
 {

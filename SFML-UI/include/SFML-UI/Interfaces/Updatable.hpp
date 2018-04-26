@@ -1,6 +1,6 @@
 #pragma once
 
-namespace gameproject
+namespace sfui
 {	
 
 /// <summary>

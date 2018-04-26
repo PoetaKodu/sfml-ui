@@ -1,8 +1,8 @@
 #pragma once
 
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
-namespace gameproject
+namespace sfui
 {
 
 // Aliases for pointer type names:

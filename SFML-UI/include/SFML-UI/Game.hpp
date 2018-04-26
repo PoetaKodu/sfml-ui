@@ -1,10 +1,10 @@
 #pragma once
 
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
-#include <GameProject/TextureRegistry.hpp>
+#include <SFML-UI/TextureRegistry.hpp>
 
-namespace gameproject
+namespace sfui
 {
 
 /// <summary>

@@ -30,80 +30,77 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameProjectPCH.cpp">
+    <ClCompile Include="src\SFML-UI\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SFML-UI\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SFML-UI\TextureRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLUIPCH.cpp">
       <Filter>Precompiled header</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameProject\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameProject\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameProject\TextureRegistry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameProject\Scene.cpp">
+    <ClCompile Include="src\SFML-UI\Element.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameProjectPCH.hpp">
-      <Filter>Precompiled header</Filter>
+    <ClInclude Include="include\SFML-UI\Core\Math\Helper.hpp">
+      <Filter>Header Files\Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Game.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\SFML-UI\Core\Math\Length.hpp">
+      <Filter>Header Files\Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\GameInstance.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\SFML-UI\Core\Math\Random.hpp">
+      <Filter>Header Files\Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\TextureRegistry.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\SFML-UI\Core\Math\Vector2.hpp">
+      <Filter>Header Files\Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Interfaces\Updatable.hpp">
+    <ClInclude Include="include\SFML-UI\Core\Math\Vector3.hpp">
+      <Filter>Header Files\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Core\Math\VectorStringBuilder.hpp">
+      <Filter>Header Files\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Core\MathInc.hpp">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Core\MathSFMLInc.hpp">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Core\Pointers.hpp">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Core\TypeTraits.hpp">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Interfaces\Updatable.hpp">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Scene.hpp">
+    <ClInclude Include="include\SFML-UI\Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Actors\Actor.hpp">
-      <Filter>Header Files\Actors</Filter>
+    <ClInclude Include="include\SFML-UI\GameInstance.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Pointers.hpp">
-      <Filter>Header Files\Core</Filter>
+    <ClInclude Include="include\SFML-UI\TextureRegistry.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Math\Helper.hpp">
-      <Filter>Header Files\Core\Math</Filter>
+    <ClInclude Include="SFMLUIPCH.hpp">
+      <Filter>Precompiled header</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Math\Length.hpp">
-      <Filter>Header Files\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Math\Random.hpp">
-      <Filter>Header Files\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Math\Vector2.hpp">
-      <Filter>Header Files\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Math\Vector3.hpp">
-      <Filter>Header Files\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\Math\VectorStringBuilder.hpp">
-      <Filter>Header Files\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\MathInc.hpp">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\TypeTraits.hpp">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameProject\Core\MathSFMLInc.hpp">
-      <Filter>Header Files\Core</Filter>
+    <ClInclude Include="include\SFML-UI\Element.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\GameProject\Core\Math\Helper.inl">
+    <None Include="include\SFML-UI\Core\Math\Helper.inl">
       <Filter>Header Files\Core\Math</Filter>
     </None>
-    <None Include="include\GameProject\Core\Math\Random.inl">
+    <None Include="include\SFML-UI\Core\Math\Random.inl">
       <Filter>Header Files\Core\Math</Filter>
     </None>
   </ItemGroup>

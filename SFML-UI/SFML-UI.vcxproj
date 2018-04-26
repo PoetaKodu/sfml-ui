@@ -22,31 +22,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{6B237FEE-2F6F-4053-9D40-DA71F0759951}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>GameProject</RootNamespace>
+    <RootNamespace>SFML-UI</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <ProjectName>SFML-UI</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -78,21 +79,25 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,9 +105,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GAMEPROJECT_PCH="GAMEPROJECT_PCH/../../GameProjectPCH.hpp";SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFMLUI_PCH="SFML-UI/../../SFMLUIPCH.hpp";SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>SFMLUIPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -119,9 +124,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GAMEPROJECT_PCH="GAMEPROJECT_PCH/../../GameProjectPCH.hpp";SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFMLUI_PCH="SFML-UI/../../SFMLUIPCH.hpp";SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>SFMLUIPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -140,9 +145,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GAMEPROJECT_PCH="GAMEPROJECT_PCH/../../GameProjectPCH.hpp";SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFMLUI_PCH="SFML-UI/../../SFMLUIPCH.hpp";SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>SFMLUIPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -163,9 +168,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GAMEPROJECT_PCH="GAMEPROJECT_PCH/../../GameProjectPCH.hpp";SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFMLUI_PCH="SFML-UI/../../SFMLUIPCH.hpp";SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>GameProjectPCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>SFMLUIPCH.hpp</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SFMLDirectory)include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -179,39 +184,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GameProjectPCH.hpp" />
-    <ClInclude Include="include\GameProject\Actors\Actor.hpp" />
-    <ClInclude Include="include\GameProject\Core\MathInc.hpp" />
-    <ClInclude Include="include\GameProject\Core\Math\Helper.hpp" />
-    <ClInclude Include="include\GameProject\Core\Math\Length.hpp" />
-    <ClInclude Include="include\GameProject\Core\Math\Random.hpp" />
-    <ClInclude Include="include\GameProject\Core\Math\Vector2.hpp" />
-    <ClInclude Include="include\GameProject\Core\Math\Vector3.hpp" />
-    <ClInclude Include="include\GameProject\Core\Math\VectorStringBuilder.hpp" />
-    <ClInclude Include="include\GameProject\Core\Pointers.hpp" />
-    <ClInclude Include="include\GameProject\Core\TypeTraits.hpp" />
-    <ClInclude Include="include\GameProject\Game.hpp" />
-    <ClInclude Include="include\GameProject\GameInstance.hpp" />
-    <ClInclude Include="include\GameProject\Core\MathSFMLInc.hpp" />
-    <ClInclude Include="include\GameProject\Interfaces\Updatable.hpp" />
-    <ClInclude Include="include\GameProject\Scene.hpp" />
-    <ClInclude Include="include\GameProject\TextureRegistry.hpp" />
+    <ClInclude Include="SFMLUIPCH.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\MathInc.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Math\Helper.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Math\Length.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Math\Random.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Math\Vector2.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Math\Vector3.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Math\VectorStringBuilder.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\Pointers.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\TypeTraits.hpp" />
+    <ClInclude Include="include\SFML-UI\Game.hpp" />
+    <ClInclude Include="include\SFML-UI\GameInstance.hpp" />
+    <ClInclude Include="include\SFML-UI\Core\MathSFMLInc.hpp" />
+    <ClInclude Include="include\SFML-UI\Interfaces\Updatable.hpp" />
+    <ClInclude Include="include\SFML-UI\Element.hpp" />
+    <ClInclude Include="include\SFML-UI\TextureRegistry.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameProject\Main.cpp" />
-    <ClCompile Include="GameProjectPCH.cpp">
+    <ClCompile Include="src\SFML-UI\Main.cpp" />
+    <ClCompile Include="SFMLUIPCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\GameProject\Game.cpp" />
-    <ClCompile Include="src\GameProject\Scene.cpp" />
-    <ClCompile Include="src\GameProject\TextureRegistry.cpp" />
+    <ClCompile Include="src\SFML-UI\Game.cpp" />
+    <ClCompile Include="src\SFML-UI\Element.cpp" />
+    <ClCompile Include="src\SFML-UI\TextureRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\GameProject\Core\Math\Helper.inl" />
-    <None Include="include\GameProject\Core\Math\Random.inl" />
+    <None Include="include\SFML-UI\Core\Math\Helper.inl" />
+    <None Include="include\SFML-UI\Core\Math\Random.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

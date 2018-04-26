@@ -1,6 +1,6 @@
 #pragma once
 
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
 namespace math
 {

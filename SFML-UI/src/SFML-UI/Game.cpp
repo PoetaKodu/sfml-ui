@@ -1,9 +1,9 @@
 #include "GameProjectPCH.hpp"
 
-#include <GameProject/Game.hpp>
-#include <GameProject/Core/MathSFMLInc.hpp>
+#include <SFML-UI/Game.hpp>
+#include <SFML-UI/Core/MathSFMLInc.hpp>
 
-namespace gameproject
+namespace sfui
 {
 
 ////////////////////////////////////////////////////////////////////////////
@@ -96,4 +96,4 @@ void Game::handleEvent(sf::Event const event_)
 	}
 }
 
-} // namespace gameproject
+} // namespace sfui

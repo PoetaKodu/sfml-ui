@@ -3,7 +3,7 @@
 #pragma once
 
 // Precompiled header:
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
 namespace math::random
 {

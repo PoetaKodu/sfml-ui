@@ -5,13 +5,13 @@
 #pragma once
 
 // Precompiled header:
-#include GAMEPROJECT_PCH
+#include SFMLUI_PCH
 
 // Custom includes:
 #include "Helper.hpp"
 #include "VectorStringBuilder.hpp"
 
-#include <GameProject/Core/TypeTraits.hpp>
+#include <SFML-UI/Core/TypeTraits.hpp>
 
 namespace math
 {
