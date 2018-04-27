@@ -23,7 +23,7 @@
     <ProjectGuid>{6B237FEE-2F6F-4053-9D40-DA71F0759951}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SFML-UI</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <ProjectName>SFML-UI</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -194,24 +194,18 @@
     <ClInclude Include="include\SFML-UI\Core\Math\VectorStringBuilder.hpp" />
     <ClInclude Include="include\SFML-UI\Core\Pointers.hpp" />
     <ClInclude Include="include\SFML-UI\Core\TypeTraits.hpp" />
-    <ClInclude Include="include\SFML-UI\Game.hpp" />
-    <ClInclude Include="include\SFML-UI\GameInstance.hpp" />
     <ClInclude Include="include\SFML-UI\Core\MathSFMLInc.hpp" />
     <ClInclude Include="include\SFML-UI\Interfaces\Updatable.hpp" />
     <ClInclude Include="include\SFML-UI\Element.hpp" />
-    <ClInclude Include="include\SFML-UI\TextureRegistry.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\SFML-UI\Main.cpp" />
     <ClCompile Include="SFMLUIPCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\SFML-UI\Game.cpp" />
     <ClCompile Include="src\SFML-UI\Element.cpp" />
-    <ClCompile Include="src\SFML-UI\TextureRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML-UI\Core\Math\Helper.inl" />

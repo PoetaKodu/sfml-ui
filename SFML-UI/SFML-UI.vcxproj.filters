@@ -19,26 +19,17 @@
     <Filter Include="Header Files\Interfaces">
       <UniqueIdentifier>{db4403fc-b112-429b-a9a2-04e1a3796cbb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Actors">
-      <UniqueIdentifier>{1d8ea422-2a9e-4f33-9bb9-140b0d72b4d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Core">
       <UniqueIdentifier>{958170fc-c27a-4d11-9aa3-819e8c116cee}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Core\Math">
       <UniqueIdentifier>{feb25506-152f-4f40-b624-bd15ba92cfc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Elements">
+      <UniqueIdentifier>{1d8ea422-2a9e-4f33-9bb9-140b0d72b4d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\SFML-UI\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SFML-UI\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SFML-UI\TextureRegistry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SFMLUIPCH.cpp">
       <Filter>Precompiled header</Filter>
     </ClCompile>
@@ -79,15 +70,6 @@
     </ClInclude>
     <ClInclude Include="include\SFML-UI\Interfaces\Updatable.hpp">
       <Filter>Header Files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML-UI\Game.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML-UI\GameInstance.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML-UI\TextureRegistry.hpp">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SFMLUIPCH.hpp">
       <Filter>Precompiled header</Filter>

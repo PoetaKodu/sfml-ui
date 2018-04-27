@@ -151,9 +151,8 @@ protected:
 	/// <param name="target_">The target.</param>
 	/// <param name="states_">The render states.</param>
 	virtual void draw(sf::RenderTarget & target_, sf::RenderStates states_) const override;
-	
-private:
-	// Methods:
+
+
 
 	/// <summary>
 	/// Finds the element inside the pool.
