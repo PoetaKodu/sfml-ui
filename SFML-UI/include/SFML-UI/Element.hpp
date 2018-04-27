@@ -88,6 +88,20 @@ public:
 		return m_children;
 	}
 
+	/// <summary>
+	/// Calculates the absolute transform of specified transformable.
+	/// </summary>
+	/// <param name="objectWithRelativeTransform_">The object with relative transform.</param>
+	/// <returns>Absolute transform.</returns>
+	sf::Transform calculateAbsoluteTransform(const sf::Transformable &objectWithRelativeTransform_) const
+	{
+		return objectWithRelativeTransform_.getTransform() * this->getTransform();
+	}
+
+	std:int32_t getZIndex() const {
+		return m_zIndex;
+	}
+
 	// Overriden methods from IUpdatable:
 	/// <summary>
 	/// Updates this instance.
@@ -96,7 +110,8 @@ public:
 	/// <param name="frameTime_">The frame start time.</param>
 	virtual void update(double const deltaTime_, TimePoint const & frameTime_) override;
 
-	// Methods:
+
+	// Memory management methods:
 
 	/// <summary>
 	/// Gets the weak pointer to self (const).
@@ -132,16 +147,6 @@ public:
 		return std::dynamic_pointer_cast<TElementType>(this->shared_from_this());
 	}
 
-	/// <summary>
-	/// Calculates the absolute transform of specified transformable.
-	/// </summary>
-	/// <param name="objectWithRelativeTransform_">The object with relative transform.</param>
-	/// <returns>Absolute transform.</returns>
-	sf::Transform calculateAbsoluteTransform(const sf::Transformable &objectWithRelativeTransform_) const
-	{
-		return objectWithRelativeTransform_.getTransform() * this->getTransform();
-	}
-
 protected:
 	// Methods:
 	// Overriden methods from sf::Drawable:
@@ -153,7 +158,6 @@ protected:
 	virtual void draw(sf::RenderTarget & target_, sf::RenderStates states_) const override;
 
 
-
 	/// <summary>
 	/// Finds the element inside the pool.
 	/// </summary>
@@ -163,7 +167,10 @@ protected:
 
 	// Members:
 
-	ElementPoolType m_children;		/// Every child element is stored inside this container.
+	ElementPoolType m_children;		// Every direct child element is stored inside this container.
+
+private:
+	std::int32_t	m_zIndex;		// Index used to determine which element of the siblings (inside parent's draw and update loop) will be considered first. The lower the z-index is, the earlier element is processed.
 };
 
 }
