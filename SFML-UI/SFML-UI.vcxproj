@@ -184,6 +184,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\SFML-UI\Core\Transform.hpp" />
     <ClInclude Include="SFMLUIPCH.hpp" />
     <ClInclude Include="include\SFML-UI\Core\MathInc.hpp" />
     <ClInclude Include="include\SFML-UI\Core\Math\Helper.hpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="include\SFML-UI\Element.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\SFML-UI\Core\Transform.cpp" />
     <ClCompile Include="SFMLUIPCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

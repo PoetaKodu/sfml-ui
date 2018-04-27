@@ -25,11 +25,8 @@
     <Filter Include="Header Files\Core\Math">
       <UniqueIdentifier>{feb25506-152f-4f40-b624-bd15ba92cfc9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Elements">
-      <UniqueIdentifier>{1d8ea422-2a9e-4f33-9bb9-140b0d72b4d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Elements">
-      <UniqueIdentifier>{71fb92ae-c8d5-49dd-bcdb-80fb52f70706}</UniqueIdentifier>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{5fe5e9dd-c061-4a9a-a0b5-415702a5ba0a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="src\SFML-UI\Element.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SFML-UI\Core\Transform.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="include\SFML-UI\Element.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML-UI\Core\Transform.hpp">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
