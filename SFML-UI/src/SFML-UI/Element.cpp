@@ -1,6 +1,7 @@
 #include "SFMLUIPCH.hpp"
 
 #include <SFML-UI/Element.hpp>
+#include <SFML-UI/Core/Transform.hpp>
 
 namespace sfui
 {
@@ -57,6 +58,25 @@ void Element::setZIndex(std::int32_t const newZIndex_)
 }
 
 //////////////////////////////////////////////////////////////////////////////
+void Element::setTransform(sf::Transform const & newTransform_)
+{
+	namespace algo = transform_algorithm;
+
+	this->setPosition(algo::extractPosition(newTransform_));
+	this->setRotation(algo::extractRotation(newTransform_));
+	this->setScale(algo::extractScale(newTransform_));
+}
+
+//////////////////////////////////////////////////////////////////////////////
+sf::Transform Element::getWorldTransform() const
+{
+	if (m_parent && m_relativeTransform)
+		return m_parent->mapToWorldTransform(this->getTransform());
+	else
+		return this->getTransform();
+}
+
+//////////////////////////////////////////////////////////////////////////////
 void Element::update(double const deltaTime_, const TimePoint & frameTime_)
 {
 	for (const auto & actor : m_children)
@@ -77,18 +97,22 @@ void Element::setParent(Element * parent_, AttachTransform const transform_)
 	{
 	case AttachTransform::KeepAbsolute:
 	{
-		auto worldTransform = this->getWorldTransform();
-		
+		auto const worldTransform = this->getWorldTransform();
+		this->setTransform(worldTransform);
+
+		m_relativeTransform = false;
 		break;
 	}
 	case AttachTransform::KeepRelative:
 	{
 		m_relativeTransform = true;
-		this->setTransform();
+		// TODO: implement this.	
 		break;
 	}
 	case AttachTransform::SnapToTarget:
 	{
+		m_relativeTransform = true;
+		this->setTransform(sf::Transform::Identity);
 		break;
 	}
 	default: ;

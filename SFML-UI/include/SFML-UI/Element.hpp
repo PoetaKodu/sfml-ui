@@ -102,23 +102,21 @@ public:
 	/// </summary>
 	/// <param name="newZIndex_">New z index.</param>
 	void setZIndex(std::int32_t const newZIndex_);
-
+	
 	/// <summary>
-	/// Returns cref to element pool.
+	/// Sets the transform.
 	/// </summary>
-	/// <returns>const-ref to element pool.</returns>
-	ElementPoolType const& getChildren() const {
-		return m_children;
-	}
+	/// <param name="newTransform_">The new transform.</param>
+	void setTransform(sf::Transform const & newTransform_);
 
 	/// <summary>
 	/// Calculates the absolute transform of specified transformable.
 	/// </summary>
 	/// <param name="objectWithRelativeTransform_">The object with relative transform.</param>
 	/// <returns>Absolute transform.</returns>
-	sf::Transform calculateAbsoluteTransform(const sf::Transformable &objectWithRelativeTransform_) const
+	sf::Transform mapToWorldTransform(sf::Transform const & relativeTransform_) const
 	{
-		return objectWithRelativeTransform_.getTransform() * this->getWorldTransform();
+		return relativeTransform_ * this->getWorldTransform();
 	}
 	
 	/// <summary>
@@ -141,9 +139,16 @@ public:
 	/// Returns the world transform.
 	/// </summary>
 	/// <returns>World transform.</returns>
-	sf::Transform getWorldTransform() const {
-		return m_worldTransform;
+	sf::Transform getWorldTransform() const;
+
+	/// <summary>
+	/// Returns cref to element pool.
+	/// </summary>
+	/// <returns>const-ref to element pool.</returns>
+	ElementPoolType const& getChildren() const {
+		return m_children;
 	}
+
 
 	// Overriden methods from IUpdatable:
 	/// <summary>
