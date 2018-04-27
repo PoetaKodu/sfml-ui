@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Elements">
       <UniqueIdentifier>{1d8ea422-2a9e-4f33-9bb9-140b0d72b4d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Elements">
+      <UniqueIdentifier>{71fb92ae-c8d5-49dd-bcdb-80fb52f70706}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SFMLUIPCH.cpp">
