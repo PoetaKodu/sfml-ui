@@ -65,6 +65,22 @@ bool nearlyEqual(TType const & a_, TType const & b_, TType const & equalityToler
 template <typename TType>
 TType clampChecked(TType const & current_, TType const & lowerBoundary_, TType const & upperBoundary_);
 
+/// <summary>
+/// Converts degrees to radians.
+/// </summary>
+/// <param name="degrees_">The number of degrees.</param>
+/// <returns>Equivalent angle to `degrees_` but in radians.</returns>
+template <typename TType>
+TType convertToRadians(TType const degrees_);
+
+/// <summary>
+/// Converts radians to degrees.
+/// </summary>
+/// <param name="radians_">The number of radians.</param>
+/// <returns>Equivalent angle to `radians_` but in degrees.</returns>
+template <typename TType>
+TType convertToDegrees(TType const radians_);
+
 } // namespace
 
 #include "Helper.inl"

@@ -27,4 +27,18 @@ inline TType clampChecked(TType const & current_, TType const & lowerBoundary_, 
 	return std::clamp(current_, lower, upper);
 }
 
+////////////////////////////////////////////////////////////////////////
+template <typename TType>
+inline TType convertToRadians(TType const degrees_)
+{
+	return degrees_ / static_cast<TType>(180) * constants::Pi<TType>;
+}
+
+////////////////////////////////////////////////////////////////////////
+template <typename TType>
+inline TType convertToDegrees(TType const radians_)
+{
+	return radians_ * static_cast<TType>(180) / constants::Pi<TType>;
+}
+
 } // namespace
