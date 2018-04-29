@@ -13,7 +13,7 @@ namespace sfui
 /// </summary>
 class Element
 	:
-	private std::enable_shared_from_this<Element>,
+	public std::enable_shared_from_this<Element>,
 	public IUpdatable,
 	public sf::Drawable,
 	public sf::Transformable
@@ -42,7 +42,7 @@ public:
 
 	// Aliases:
 
-	using ElementPtrType	= std::shared_ptr< Element >;
+	using ElementPtrType	= SharedPtr< Element >;
 	using ElementPoolType	= std::vector< ElementPtrType >;
 
 	// Methods:
@@ -56,13 +56,14 @@ public:
 	/// Spawns an element inside this scene.
 	/// </summary>
 	/// <returns>Reference to the created element.</returns>
-	template <typename TElementType>		
-	TElementType& spawn()
+	template <typename TElementType, typename... TArgs>		
+	TElementType& spawn(TArgs&&... arguments_)
 	{
-		if (auto element = std::make_shared<TElementType>())
+		if (auto element = std::make_shared<TElementType>( std::forward<TArgs>(arguments_)... ))
 		{
+			auto& elementRef = *element;
 			this->attach( std::move(element), AttachTransform::SnapToTarget, AttachPolicy::Unchecked );
-			return *element;
+			return elementRef;
 		}
 		else // Something inside `make_shared` failed, most probably allocation.
 			throw std::runtime_error("Could not spawn element inside the scene.");
@@ -87,6 +88,13 @@ public:
 	///		<c>true</c> if succeeded; otherwise, <c>false</c>.
 	/// </returns>
 	bool remove(Element const& element_);
+	
+	/// <summary>
+	/// Detaches the specified child element.
+	/// </summary>
+	/// <param name="element_">The element.</param>
+	/// <returns>Owning pointer to released element.</returns>
+	ElementPtrType detach(Element const & element_);
 		
 	/// <summary>
 	/// Determines whether scene contains the specified element.
@@ -116,7 +124,7 @@ public:
 	/// <returns>Absolute transform.</returns>
 	sf::Transform mapToWorldTransform(sf::Transform const & relativeTransform_) const
 	{
-		return relativeTransform_ * this->getWorldTransform();
+		return this->getWorldTransform() * relativeTransform_;
 	}
 	
 	/// <summary>
@@ -158,6 +166,102 @@ public:
 	/// <param name="frameTime_">The frame start time.</param>
 	virtual void update(double const deltaTime_, TimePoint const & frameTime_) override;
 
+	// Overriden (shadowed) methods for sf::Transformable
+
+	/// <summary>
+	/// Sets element's relative position.
+	/// </summary>
+	/// <param name="x_">The x-axis position.</param>
+	/// <param name="y_">The y-axis position.</param>
+	virtual void setPosition(float x_, float y_);
+	
+	/// <summary>
+	/// Sets element's relative position.
+	/// </summary>
+	/// <param name="position_">The position.</param>
+	virtual void setPosition(const sf::Vector2f& position_);
+	
+	/// <summary>
+	/// Sets element's relative rotation.
+	/// </summary>
+	/// <param name="angle_">The angle.</param>
+	virtual void setRotation(float angle_);
+	
+	/// <summary>
+	/// Sets element's relative scale.
+	/// </summary>
+	/// <param name="factorX_">The x-axis factor.</param>
+	/// <param name="factorY_">The y-axis factor.</param>
+	virtual void setScale(float factorX_, float factorY_);
+	
+	/// <summary>
+	/// Sets element's relative scale.
+	/// </summary>
+	/// <param name="factors_">The factors.</param>
+	virtual void setScale(const sf::Vector2f& factors_);
+	
+	/// <summary>
+	/// Sets element's origin.
+	/// </summary>
+	/// <param name="x_">The x-axis position.</param>
+	/// <param name="y_">The y-axis position.</param>
+	virtual void setOrigin(float x_, float y_);
+	
+	/// <summary>
+	/// Sets element's origin.
+	/// </summary>
+	/// <param name="origin_">The origin.</param>
+	virtual void setOrigin(const sf::Vector2f& origin_);
+	
+	/// <summary>
+	/// Moves element by specified axis values.
+	/// </summary>
+	/// <param name="offsetX_">The x-axis offset.</param>
+	/// <param name="offsetY_">The y-axis offset.</param>
+	virtual void move(float offsetX_, float offsetY_);
+	
+	/// <summary>
+	/// Moves element by specified vector.
+	/// </summary>
+	/// <param name="offset_">The offset.</param>
+	virtual void move(const sf::Vector2f& offset_);
+	
+	/// <summary>
+	/// Rotates element by specified angle.
+	/// </summary>
+	/// <param name="angle_">The angle.</param>
+	virtual void rotate(float angle_);
+	
+	/// <summary>
+	/// Scales element by specified axis values.
+	/// </summary>
+	/// <param name="factorX_">The x-axis factor.</param>
+	/// <param name="factorY_">The y-axis factor.</param>
+	virtual void scale(float factorX_, float factorY_);
+	
+	/// <summary>
+	/// Scales element by specified vector.
+	/// </summary>
+	/// <param name="factor_">The factors vector.</param>
+	virtual void scale(const sf::Vector2f& factor_);
+	
+	/// <summary>
+	/// Returns the element's world position.
+	/// </summary>
+	/// <returns>Element's world position.</returns>
+	virtual sf::Vector2f getWorldPosition() const;
+
+	/// <summary>
+	/// Returns the element's world rotation.
+	/// </summary>
+	/// <returns>Element's world rotation.</returns>
+	virtual float getWorldRotation() const;
+
+	/// <summary>
+	/// Returns the element's world scale.
+	/// </summary>
+	/// <returns>Element's world scale.</returns>
+	virtual sf::Vector2f getWorldScale() const;
 
 	// Memory management methods:
 
@@ -220,6 +324,11 @@ protected:
 	/// Reinserts the child to match z-index order.
 	/// </summary>
 	void reinsertChildWithOrder(Element & element_);
+	
+	/// <summary>
+	/// Invalidates the children world transform.
+	/// </summary>
+	void invalidateChildrenWorldTransform();
 
 	/// <summary>
 	/// Finds the element inside the pool.
@@ -251,11 +360,15 @@ protected:
 
 	// Members:
 
-	ElementPoolType m_children;				// Every direct child element is stored inside this container.
-	Element*		m_parent;				// Element's parent in the UI tree. nullptr if this element is a root.
+	ElementPoolType			m_children;						// Every direct child element is stored inside this container.
+	Element*				m_parent;						// Element's parent in the UI tree. nullptr if this element is a root.
 private:
-	std::int32_t	m_zIndex;				// Index used to determine which element of the siblings (inside parent's draw and update loop) will be considered first. The lower the z-index is, the earlier element is processed.
-	bool			m_relativeTransform;	// Determines whether object moves with its parent or not.
+	std::int32_t			m_zIndex;						// Index used to determine which element of the siblings (inside parent's draw and update loop) will be considered first. The lower the z-index is, the earlier element is processed.
+	
+	bool					m_usesRelativeTransform;		// Determines whether object moves with its parent or not.
+
+	mutable sf::Transform	m_worldTransform;				// Pre-calculated world transform, used to improve performance.
+	mutable bool			m_needsWorldTransformUpdate;	// Determines whether world transform must be updated.
 };
 
 }

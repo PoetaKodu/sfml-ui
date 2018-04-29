@@ -21,12 +21,11 @@ sf::Vector2f extractScale(sf::Transform const & transform_)
 {
 	auto const matrix = transform_.getMatrix();
 
-	float const lenXVec = std::sqrt(matrix[0] * matrix[0] + matrix[4] * matrix[4]);
-	float const lenYVec = std::sqrt(matrix[1] * matrix[1] + matrix[5] * matrix[5]);
+	float const cosAngle = std::cos( math::convertToRadians( extractRotation(transform_) ) );
 
 	return sf::Vector2f{
-			matrix[0] >= 0 ? lenXVec : -lenXVec,
-			matrix[5] >= 0 ? lenYVec : -lenYVec
+			matrix[0] / cosAngle,
+			matrix[5] / cosAngle
 		};
 }
 
@@ -34,8 +33,7 @@ sf::Vector2f extractScale(sf::Transform const & transform_)
 float extractRotation(sf::Transform const & transform_)
 {
 	auto const matrix = transform_.getMatrix();
-
-	return math::convertToDegrees( std::atan2(matrix[1], matrix[5]) );
+	return math::convertToDegrees( std::atan2( matrix[1], matrix[5]) );
 }
 
 }
